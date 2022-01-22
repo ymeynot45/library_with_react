@@ -2,20 +2,20 @@ import React from "react";
 import PropTypes from 'prop-types';
 import "./LibraryPage.css";
 
-function BookPage({book}){
+function LibraryPage({books}){
+    console.log(books);
     return(
         <ul className="LibraryPage-books">
             {books.map(book =>
                 <li key={book.id} className="LibraryPage-Book">
-                    {book.name}
+                    {book.title} - {book.author} - {book.pageCount} - Have Read?  {book.haveRead.toString()}
                 </li>
             )}
-
         </ul>
     );
 }
 
-BookPage.propTypes = {
+LibraryPage.propTypes = {
     books: PropTypes.array.isRequired
 }
 

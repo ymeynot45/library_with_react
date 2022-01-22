@@ -1,6 +1,9 @@
 import React, { useState} from "react";
+import LibraryPage from "./LibraryPage.js";
+import {library} from "./BookPage.js";
 import Nav from "./Nav.js";
 import "./App.css";
+
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('library');
@@ -21,7 +24,7 @@ const Content = ({tab}) => {
   switch (tab){
     default:
     case 'library':
-      return <span> the library</span>
+      return <LibraryPage books={library}/>
     case 'NewBookForm':
       return <span> Add new book</span>
   }

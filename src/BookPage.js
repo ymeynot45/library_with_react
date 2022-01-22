@@ -1,22 +1,32 @@
-import React from "react";
-import PropTypes from 'prop-types';
-import "./BookPage.css";
+let library = [
+    {
+        id: 1,
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pageCount: 295,
+        haveRead: false
 
-function BookPage({book}){
-    return(
-        <ul className="BookPage-books">
-            {books.map(book =>
-                <li key={book.id} className="BookPage-Book">
-                    {book.name}
-                </li>
-            )}
+    },
+    {
+        id: 2,
+        title: "Flight from the Dark",
+        author: "Joe Denver",
+        pageCount: 300,
+        haveRead: true
 
-        </ul>
-    );
-}
+    },
+    {
+        id: 3,
+        title: "Fire on the Water",
+        author: "Gary Chalk",
+        pageCount: 350,
+        haveRead: false
 
-BookPage.propTypes = {
-    books: PropTypes.array.isRequired
-}
+    }
+];
 
-export default BookPage;
+
+export {library};
+// addBookToLibrary(myLibrary, new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
+//     addBookToLibrary(myLibrary, new Book("Flight from the Dark", "Joe Denver", 300, true));
+//     addBookToLibrary(myLibrary, new Book("Fire on the Water", "Gary Chalk", 350, false));
