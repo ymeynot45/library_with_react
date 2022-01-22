@@ -1,0 +1,10 @@
+.LibraryPage-books{
+    margin: 0px;
+    padding: 0px;
+}
+
+.LibraryPage-books li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
