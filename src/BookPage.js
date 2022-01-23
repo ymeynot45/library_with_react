@@ -1,3 +1,7 @@
+import React from "react";
+import PropTypes from 'prop-types';
+import "./BookPage.css";
+
 let library = [
     {
         id: 1,
@@ -24,6 +28,10 @@ let library = [
 
     }
 ];
+
+
+
+
 
 
 export {library};
