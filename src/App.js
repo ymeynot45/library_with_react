@@ -3,10 +3,12 @@ import LibraryPage from "./LibraryPage.js";
 import {library} from "./BookPage.js";
 import Nav from "./Nav.js";
 import "./App.css";
+import AddBookPage from "./AddBookPage.js";
 
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('library');
+  // const ;
   return(
     <div className='App'>
       <Nav 
@@ -26,7 +28,7 @@ const Content = ({tab}) => {
     case 'library':
       return <LibraryPage books={library}/>
     case 'NewBookForm':
-      return <span> Add new book</span>
+      return <AddBookPage/>
   }
 }
 

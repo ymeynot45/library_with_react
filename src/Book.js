@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import "./Book.css";
+import "./BookPage.js";
+import { library } from "./BookPage.js";
 
 const Book = ({book, haveReadToggle}) => (
     <div className="Book">
@@ -16,9 +18,13 @@ const Book = ({book, haveReadToggle}) => (
     </div>
 );
 
-Book.PropTypes = {
-    book: PropTypes.object.isRequired,
-    haveReadToggle: PropTypes.func.isRequired
+ const haveReadToggle = () => {
+
 };
+
+// Book.PropTypes = {
+//     book: PropTypes.object.isRequired,
+//     haveReadToggle: PropTypes.func.isRequired,
+// };
 
 export default Book;
