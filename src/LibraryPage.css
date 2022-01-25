@@ -8,3 +8,9 @@
     margin-bottom: 20px;
 }
 
+.libraryPage-headers span{
+    display: grid | inline-grid;
+    padding-left: 150px;
+    text-align: center;
+    justify-content: center ;
+}

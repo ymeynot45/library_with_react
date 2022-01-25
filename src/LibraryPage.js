@@ -7,13 +7,16 @@ import Book from "./Book.js";
 function LibraryPage({books, haveReadToggle}){
     console.log(books);
     return(
-        <ul className="LibraryPage-books">
-            {books.map(book =>
-                <li key={book.id} className="LibraryPage-Book">
-                    <Book book={book} haveReadToggle={() => haveReadToggle(book)} />
-                </li>
-            )}
-        </ul>
+        <div>
+            <div class="libraryPage-headers"><span>Title - </span><span>Author - </span><span>PageCount - </span><span>Have Read - </span></div>
+            <ul className="LibraryPage-books">
+                {books.map(book =>
+                    <li key={book.id} className="LibraryPage-Book">
+                        <Book book={book} haveReadToggle={() => haveReadToggle(book)} />
+                    </li>
+                )}
+            </ul>
+        </div>
     );
 }
 

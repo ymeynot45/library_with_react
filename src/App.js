@@ -4,6 +4,7 @@ import {library} from "./BookPage.js";
 import Nav from "./Nav.js";
 import "./App.css";
 import AddBookPage from "./AddBookPage.js";
+import BookForm from "./AddBookPage.js";
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const Content = ({tab}) => {
     case 'library':
       return <LibraryPage books={library}/>
     case 'NewBookForm':
-      return <AddBookPage/>
+      return <BookForm/>
   }
 }
 

@@ -12,19 +12,19 @@ const Book = ({book, haveReadToggle}) => (
             </div>            
         </div>
         <div className="Book-right">
-            <button className="have_read_button">{haveReadToggle}</button>
+            <button className="have_read_button" text="Have Read">Have Read{haveReadToggle}</button>
         </div>
 
     </div>
 );
 
- const haveReadToggle = () => {
-
+ const haveReadToggle = (book) => {
+    
 };
 
 // Book.PropTypes = {
 //     book: PropTypes.object.isRequired,
-//     haveReadToggle: PropTypes.func.isRequired,
+//     haveReadToggle: PropTypes.func.isRequired
 // };
 
 export default Book;
