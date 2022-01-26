@@ -1,30 +1,84 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import "./Book.css";
-import "./BookPage.js";
-import { library } from "./BookPage.js";
 
-const Book = ({book, haveReadToggle}) => (
-    <div className="Book">
-        <div className="Book-left">
-            <div className="Book-properties">
-                {book.title} - {book.author} - {book.pageCount} - Have Read?  {book.haveRead.toString()}
-            </div>            
-        </div>
-        <div className="Book-right">
-            <button className="have_read_button" text="Have Read">Have Read{haveReadToggle}</button>
-        </div>
+let Book = function (title, author, pageNumber, haveRead) {
+    this.title = title;
+    this.author = author;
+    this.pageNumber = pageNumber;
+    this.haveRead = haveRead;
 
-    </div>
-);
-
- const haveReadToggle = (book) => {
+    this.toggleHaveRead = function() {  //should I bind this function?
+        // if (this.haveRead === true ) {
+        //     this.haveRead = false;
+        // } else if (this.haveRead === false) {
+        //     this.haveRead = true;
+        // }
+        this.haveRead = !this.haveRead;
+        console.log(this.haveRead)
+        return this.haveRead
+    }
     
-};
+    return this;
+}
 
-// Book.PropTypes = {
-//     book: PropTypes.object.isRequired,
-//     haveReadToggle: PropTypes.func.isRequired
-// };
+const addBookToLibrary = function(library, newBook) {
+    addIdToBook(newBook);
+    library = library.push(newBook);
+    findNextId();
+    return library;
+}
+const addIdToBook = function(newbook) {
+    let nextBookId = findNextId();
+    newbook['id'] = nextBookId;
+    return newbook
+}
 
-export default Book;
+const findNextId = function() {
+    let nextId = Math.max(...library.map(book => book.id));
+    if(nextId < 1){
+        nextId = 1
+    }
+    else{
+        ++nextId
+    }
+    return nextId;
+}
+
+
+
+let library = [
+    // {
+    //     id: 1,
+    //     title: "The Hobbit",
+    //     author: "J.R.R. Tolkien",
+    //     pageCount: 295,
+    //     haveRead: false
+
+    // },
+    // {
+    //     id: 2,
+    //     title: "Flight from the Dark",
+    //     author: "Joe Denver",
+    //     pageCount: 300,
+    //     haveRead: true
+
+    // },
+    // {
+    //     id: 3,
+    //     title: "Fire on the Water",
+    //     author: "Gary Chalk",
+    //     pageCount: 350,
+    //     haveRead: false
+
+    // }
+];
+
+
+
+addBookToLibrary(library, new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
+addBookToLibrary(library, new Book("Flight from the Dark", "Joe Denver", 300, true));
+addBookToLibrary(library, new Book("Fire on the Water", "Gary Chalk", 350, false));
+
+
+export {library};
