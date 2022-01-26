@@ -1,6 +1,39 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import "./BookPage.css";
+
+let Book = function (title, author, pageNumber, haveRead) {
+    this.title = title;
+    this.author = author;
+    this.pageNumber = pageNumber;
+    this.haveRead = haveRead;
+
+    this.toggleHaveRead = function() {  //should I bind this function?
+        if(this.haveRead === true ){
+            this.haveRead = false;
+        }else if(this.haveRead === false){
+            this.haveRead = true;
+        }
+        return this.haveRead
+    }
+    
+    return this
+}
+
+
+
+
+// const loadLibrary = function(library) {
+//     let thirdShelf = document.createElement("ol");
+//     thirdShelf.setAttribute(`id`, `thirdShelf`);
+//     document.getElementById(`secondShelf`).appendChild(thirdShelf);
+//     library.forEach(book => {
+//         createBookSlot(book);
+//     });
+// }   
+
+
+
 
 let library = [
     {
