@@ -8,6 +8,7 @@ import BookForm from "./AddBookPage.js";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('library');
+
   // const ;
   return(
     <div className='App'>
@@ -23,11 +24,12 @@ const App = () => {
   };
 
   let Content = ({tab}) => {
+    // const [library, setlibrary] = useState('haveRead');
     let library = [
       {
           id: 1,
           title: "The Hobbit",
-          author: "J.R.R. Tolkien",
+          author: "J.R.R. Tolkien", 
           pageCount: 295,
           haveRead: false
 
@@ -50,9 +52,13 @@ const App = () => {
       }
     ];
 
-    const tog = () => {
+    const tog = (id) => {
       console.log("Huzza");
-      // library[index].haveRead = !library[index].haveRead;
+      console.log(id);
+      let index = library.findIndex(x =>x.id === id);
+      library[index].haveRead = !library[index].haveRead;
+      // () =>onTabChange('NewBookForm')}
+      
     }
   
   switch (tab){

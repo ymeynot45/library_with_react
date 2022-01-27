@@ -8,17 +8,14 @@ import "./BookSlot.css";
 // () => { () }
 // () => { return (); }
 const BookSlot = ({id, title, author, pageCount, haveRead, tog}) => {
-    // console.log("this is the title in the bookslot ", title)
-
-    // console.log('yo rendering book', BookSlot);
-    return <div className="Book">
+    return <div className="Book" id={id+title} >
         <div className="Book-left">
             <div className="Book-properties">
                 {id} - {title} - {author} - {pageCount} - Have Read?  {haveRead.toString()}
             </div>            
         </div>
         <div className="Book-right">
-            <button className="have_read_button" onClick={tog}>Have Read</button>
+            <button className="have_read_button" onClick={() => tog(id)}>Have Read</button>
         </div>
 
     </div>;
