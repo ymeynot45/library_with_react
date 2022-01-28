@@ -52,92 +52,29 @@ const App = () => {
 
 
     const reducer = (library, action) => {
-      // let compare = function(a, b, item){
-      //   let itemA = a[item];
-      //   let itemB = b[item];
-    
-      //   let comparison = 0;
-      //   if (itemA > itemB){
-      //       comparison = 1;
-      //   } else if (itemA < itemB){
-      //       comparison = -1
-      //   }
-      //   return comparison;
-
-      let compareTitle = function(a, b){
-        let itemA = a.title.toUpperCase();
-        let itemB = b.title.toUpperCase();
-    
-        let comparison = 0;
-        if (itemA > itemB){
-            comparison = 1;
-        } else if (itemA < itemB){
-            comparison = -1
+      let comp = (field) => {
+        return (aItem, bItem) => {
+          let [a, b] = [aItem[field], bItem[field]];
+          if (typeof(a) === 'string') { a = a.toUpperCase(); }
+          if (typeof(b) === 'string') { b = b.toUpperCase(); }
+          if (a < b) {
+            return -1;
+          } else if (a > b) {
+            return 1;
+          } else {
+            return 0
+          }
         }
-        return comparison;
       }
-
-      let compareAuthor = function(a, b){
-        let itemC = a.author.toUpperCase();
-        let itemD = b.author.toUpperCase();
-    
-        let comparison = 0;
-        if (itemC > itemD){
-            comparison = 1;
-        } else if (itemC < itemD){
-            comparison = -1
-        }
-        return comparison;
-      }
-
-      let comparePageCount = function(a, b){
-        let itemE = a.pageCount;
-        let itemF = b.pageCount;
-    
-        let comparison = 0;
-        if (itemE > itemF){
-            comparison = 1;
-        } else if (itemE < itemF){
-            comparison = -1
-        }
-        return comparison;
-      }
-
-      let compareHaveRead = function(a, b){
-        let itemG = a.haveRead;
-        let itemH = b.haveRead;
-        let comparison = 0;
-        if (itemG > itemH){
-            comparison = 1;
-        } else if (itemG < itemH){
-            comparison = -1
-        }
-        return comparison;
-
-      }
-      switch (action.type) {
-        case 'Title':
-          let item = 'title';
-          console.log('before ', library);
-          library = library.sort(compareTitle).slice(0);
-          console.log("after ", library);
-          setLibrary(library);
-          return library;
-        case 'Author':
-          library = library.sort(compareAuthor).slice(0);
-          setLibrary(library);
-          return library;
-        case 'Page Count':
-          library = library.sort(comparePageCount).slice(0);
-          setLibrary(library);
-          return library;
-        case 'Have Read':
-          library = library.sort(compareHaveRead).slice(0);
-          setLibrary(library);
-          return library
-        default:
-          throw new Error("reducer broken");
-      }
+      let field = {
+        'Title': 'title',
+        'Author': 'author',
+        'Page Count': 'pageCount',
+        'Have Read': 'haveRead',
+      }[action.type];
+      library = library.slice(0).sort(comp(field));
+      setLibrary(library);
+      return library;
     }
 
     const tog = (id) => {
