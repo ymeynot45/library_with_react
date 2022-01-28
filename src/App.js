@@ -119,20 +119,21 @@ const App = () => {
         case 'Title':
           let item = 'title';
           console.log('before ', library);
-          // let mylibrary = _.sortBy(library, "title");
-          let mylibrary = library.sort(compareTitle);
+          library = library.sort(compareTitle).slice(0);
           console.log("after ", library);
-          return mylibrary;
+          setLibrary(library);
+          return library;
         case 'Author':
-          console.log("before", library);
-          library = library.sort(compareAuthor);
-          console.log("after", library);
+          library = library.sort(compareAuthor).slice(0);
+          setLibrary(library);
           return library;
         case 'Page Count':
-          library = library.sort(comparePageCount);
+          library = library.sort(comparePageCount).slice(0);
+          setLibrary(library);
           return library;
         case 'Have Read':
-          library = library.sort(compareHaveRead);
+          library = library.sort(compareHaveRead).slice(0);
+          setLibrary(library);
           return library
         default:
           throw new Error("reducer broken");
