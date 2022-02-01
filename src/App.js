@@ -1,9 +1,9 @@
-import React, {useState, useReducer} from "react";
+import React, {useState} from "react";
 import "./App.css";
 // import {library} from "./Book.js";
 import Nav from "./Nav.js";
 import LibraryPage from "./LibraryPage.js";
-import BookForm from "./AddBookPage.js";
+import AddBookPage from "./AddBookPage.js";
 
 
 const App = () => {
@@ -50,7 +50,6 @@ const App = () => {
       }
     ]);
 
-
     const reducer = (library, action) => {
       let comp = (field) => {
         return (aItem, bItem) => {
@@ -66,7 +65,7 @@ const App = () => {
           }
         }
       }
-      let field = {
+      let field = {  //can refactor again if I just lowercase the type on the LibraryPage.
         'Title': 'title',
         'Author': 'author',
         'Page Count': 'pageCount',
@@ -85,7 +84,12 @@ const App = () => {
       newLibrary[index].haveRead = !library[index].haveRead;
       console.log('  after', newLibrary[index].haveRead)
       setLibrary(newLibrary);
-      //library = newLibrary; // NOT REQUIRED DUE TO USESTATE MAGIC.
+    }
+
+    const addBookToLibrary = () => {
+      console.log("ADDBOOK ", library)
+      // alert("ADDBOOK");
+      return
     }
 
   switch (tab){
@@ -93,7 +97,7 @@ const App = () => {
     case 'library':
       return <LibraryPage showLibrary={library} tog={tog} reducer={reducer}/>  //FLAG
     case 'NewBookForm':
-      return <BookForm onAddBook={library}/>
+      return <AddBookPage onAddBook={library} addBook={addBookToLibrary}/>
   }
 }
 
