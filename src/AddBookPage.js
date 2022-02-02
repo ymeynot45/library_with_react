@@ -4,9 +4,9 @@ import "./AddBookPage.css";
 import insertBookForm from "./BookForm.js"
 
 
-function AddBookPage(){
+function AddBookPage(dataRetrieval){
   return(
-    insertBookForm()
+    insertBookForm(dataRetrieval)
   )
 };
 

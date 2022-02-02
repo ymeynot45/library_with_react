@@ -56,20 +56,27 @@ import React from "react";
 //     </label>
 // </form>
 
-function insertBookForm(){
+function insertBookForm(dataRetrieval){
   //insert constants
   return(
-    <div> Add a Book!
-      <form action='' method='post' id='newBookForm'/><br></br>
-        <label>Title: </label> 
-        <input type='text' id='newTitle' name='title'/><br></br>
-        <label>Author: </label> 
-        <input type='text' id='newAuthor' name='author'/><br></br>
-        <label>Page Count: </label> 
-        <input type='number' name='pageNumber'/><br></br>
-        <label>Have Read: </label> 
-        <input id='haveReadFalse' name='haveRead' type='checkbox' value='true'/><label for='haveReadRadioFalse'>Finished</label><br></br>
-        <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
+    <div>
+      <div>
+        Other information
+      </div>
+      <div> Add a Book!
+        <form action='' method='post' id='newBookForm'/><br></br>
+          <fieldset>
+            <label>Title: </label> 
+            <input type='text' id='newTitle' name='title'/><br></br>
+            <label>Author: </label> 
+            <input type='text' id='newAuthor' name='author'/><br></br>
+            <label>Page Count: </label> 
+            <input type='number' name='pageNumber'/><br></br>
+            <label>Have Read: </label> 
+            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true'/><label for='haveReadRadioFalse'>Finished</label><br></br>
+            <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
+          </fieldset>
+      </div>
     </div>
   );
 }

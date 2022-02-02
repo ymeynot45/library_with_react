@@ -86,18 +86,20 @@ const App = () => {
       setLibrary(newLibrary);
     }
 
-    const addBookToLibrary = () => {
+    const addBookToLibrary = (dataRetrieval) => {
       console.log("ADDBOOK ", library)
       // alert("ADDBOOK");
       return
     }
+
+    const dataRetrieval = () => {}
 
   switch (tab){
     default:
     case 'library':
       return <LibraryPage showLibrary={library} tog={tog} reducer={reducer}/>  //FLAG
     case 'NewBookForm':
-      return <AddBookPage onAddBook={library} addBook={addBookToLibrary}/>
+      return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>
   }
 }
 
