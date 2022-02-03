@@ -24,7 +24,7 @@ function InsertBookForm(dataRetrieval){
   }
 
   const handleChange = event => {
-    const isCheckbox = event.target.ype === 'checkbox';
+    const isCheckbox = event.target.type === 'checkbox';
 
     setFormData({
       name: event.target.name,
