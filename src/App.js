@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import "./App.css";
-// import {library} from "./Book.js";
 import Nav from "./Nav.js";
 import LibraryPage from "./LibraryPage.js";
 import AddBookPage from "./AddBookPage.js";
@@ -49,6 +48,7 @@ const App = () => {
 
       }
     ]);
+    
 
     const reducer = (library, action) => {
       let comp = (field) => {
@@ -88,7 +88,6 @@ const App = () => {
 
     const addBookToLibrary = (dataRetrieval) => {
       console.log("ADDBOOK ", library)
-      // alert("ADDBOOK");
       return
     }
 

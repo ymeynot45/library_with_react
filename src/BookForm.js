@@ -1,85 +1,69 @@
-import React from "react";
+import React, {useReducer, useState} from "react";
 // import PropTypes from "Prop-types";
-// import "./BookForm.css"
+import "./BookForm.css"
 
-// const Book = function (title, author, pageNumber, haveRead) {
-//   this.title = title;
-//   this.author = author;
-//   this.pageNumber = pageNumber;
-//   this.haveRead = haveRead;
-//   return this
-// }  
+const formReducer = (state, event) => {
+  return {
+    ... state, 
+    [event.name]: event.value,
+  }
+}
 
-// class BookForm extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//     title: '',
-//     author: '',
-//     pageCount: 0,
-//     haveRead: true,
-//     };
+function InsertBookForm(dataRetrieval){
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useReducer(formReducer, []);
 
-//   this.handleChange = this.handleChange.bind(this);
-//   this.handleSubmit = this.handleSubmit.bind(this);
-// };
+  const handleSubmit = event => {
+    event.preventDefault();
+    alert('You have submitted the form.')
+    setSubmitting(true);
 
+    setTimeout(() =>{
+      setSubmitting(false);
+    }, 3000)
+  }
 
+  const handleChange = event => {
+    const isCheckbox = event.target.ype === 'checkbox';
 
-// handleChange(event){
-//     let target = event.target;
-//     let value = target.type === 'checkbox' ? target.checked : target.value;
-//     let name = target.name;
+    setFormData({
+      name: event.target.name,
+      value: isCheckbox ? event.target.checked : event.target.value
+    })
+  }
 
-//     this.setState({
-//       [name]: value 
-//     });
-// }
-
-// handleSubmit(event) {
-//   event.preventDefault(); 
-//   console.log(this);
-//   console.log("form props " + this.props);
-//   console.log("form submitted: " + this.state.title + " author: " + this.state.author + " pages: " + this.state.pageCount + " read? " + this.state.haveRead);
-// }
-
-
-
-// <form onSubmit={this.handleSubmit}>
-// <label>
-//         New Book Form: <br/>
-//         Title: <input name="title" type="text" value={this.state.title} onChange={this.handleChange} className="formInputs"/><br/>
-//         Author: <input name="author" type="text" value={this.state.author} onChange={this.handleChange} className="formInputs"/><br/>
-//         Page Count: <input name="pageCount" type="number" value={this.state.pageCount} onChange={this.handleChange} className="formInputs"/><br/>
-//         I Have Read This Book: <input name="haveRead" type="checkbox" checked={this.state.haveRead} onChange={this.handleChange} className="formInputs"/><br/>
-//         <input type="submit" value="Submit"/>
-//     </label>
-// </form>
-
-function insertBookForm(dataRetrieval){
-  //insert constants
   return(
-    <div>
+    <div className="bookFormWrapper">
       <div>
         Other information
       </div>
+      {submitting && 
+      <div id="submittingMessage" >Submitting Form ... 
+      You are submitting the following:
+         <ul>
+           {Object.entries(formData).map(([name, value]) => (
+             <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+           ))}
+         </ul></div>
+      }
       <div> Add a Book!
-        <form action='' method='post' id='newBookForm'/><br></br>
-          <fieldset>
+        <form id="newBookForm" onSubmit={handleSubmit}><br></br>
+          <fieldset >
             <label>Title: </label> 
-            <input type='text' id='newTitle' name='title'/><br></br>
+            <input type='text' id='newTitle' name='title' onChange={handleChange}/><br></br>
             <label>Author: </label> 
-            <input type='text' id='newAuthor' name='author'/><br></br>
+            <input type='text' id='newAuthor' name='author' onChange={handleChange}/><br></br>
             <label>Page Count: </label> 
-            <input type='number' name='pageNumber'/><br></br>
+            <input type='number' name='pageNumber' onChange={handleChange}/><br></br>
             <label>Have Read: </label> 
-            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true'/><label for='haveReadRadioFalse'>Finished</label><br></br>
+            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true' onChange={handleChange}/><label for='haveReadRadioFalse'>Finished</label><br></br>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
           </fieldset>
+        </form>
       </div>
     </div>
   );
 }
 
 
-export default insertBookForm;
+export default InsertBookForm;

@@ -1,12 +1,12 @@
 import React from "react";
 // import PropTypes from "prop-types";
 import "./AddBookPage.css";
-import insertBookForm from "./BookForm.js"
+import InsertBookForm from "./BookForm.js"
 
 
 function AddBookPage(dataRetrieval){
   return(
-    insertBookForm(dataRetrieval)
+    InsertBookForm(dataRetrieval)
   )
 };
 
