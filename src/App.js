@@ -22,6 +22,15 @@ const App = () => {
   };
 
   let Content = ({tab}) => {
+
+    const Book = function (title, author, pageNumber, haveRead) {
+      this.title = title;
+      this.author = author;
+      this.pageNumber = pageNumber;
+      this.haveRead = haveRead;
+      return this
+    }
+
     let [library, setLibrary] = useState([
       {
           id: 1,
@@ -48,8 +57,7 @@ const App = () => {
 
       }
     ]);
-    
-
+        
     const reducer = (library, action) => {
       let comp = (field) => {
         return (aItem, bItem) => {
@@ -77,27 +85,51 @@ const App = () => {
     }
 
     const tog = (id) => {
-      console.log(id);
       const newLibrary = [...library];
       let index = newLibrary.findIndex(x =>x.id === id);
-      console.log("tog", id, index, 'before', library[index].haveRead);
       newLibrary[index].haveRead = !library[index].haveRead;
-      console.log('  after', newLibrary[index].haveRead)
       setLibrary(newLibrary);
     }
 
-    const addBookToLibrary = (dataRetrieval) => {
-      console.log("ADDBOOK ", library)
-      return
+    let dataRetrieval = (formData) => {
+      console.log("app.js formdata" , formData);
+      let formProps = formData;
+      let book = new Book(formProps.title, formProps.author, formProps.pageNumber, formProps.haveRead);
+      console.log("library" , library);
+      addBookToLibrary(library, book);
     }
 
-    const dataRetrieval = () => {}
+    const addBookToLibrary = function(library, newBook) {
+      addIdToBook(newBook);
+      const newLibrary = [...library, newBook];
+      setLibrary(newLibrary);
+      findNextId();
+      return library
+    }
+
+    const addIdToBook = function(newBook) {
+      let nextBookId = findNextId()
+      newBook['id'] = nextBookId
+      return newBook
+    }
+
+    const findNextId = function() {
+      let nextId = Math.max(...library.map(book => book.id));
+      if(nextId < 1){
+          nextId = 1
+      }
+      else{
+          ++nextId
+      }
+      return nextId
+  }
 
   switch (tab){
     default:
     case 'library':
       return <LibraryPage showLibrary={library} tog={tog} reducer={reducer}/>  //FLAG
     case 'NewBookForm':
+      console.log("app page", typeof dataRetrieval)
       return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>
   }
 }

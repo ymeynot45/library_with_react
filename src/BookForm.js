@@ -15,8 +15,8 @@ function InsertBookForm(dataRetrieval){
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert('You have submitted the form.')
     setSubmitting(true);
+    dataRetrieval(formData);
 
     setTimeout(() =>{
       setSubmitting(false);
@@ -56,7 +56,7 @@ function InsertBookForm(dataRetrieval){
             <label>Page Count: </label> 
             <input type='number' name='pageNumber' onChange={handleChange}/><br></br>
             <label>Have Read: </label> 
-            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true' onChange={handleChange}/><label for='haveReadRadioFalse'>Finished</label><br></br>
+            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true' onChange={handleChange}/>Finished<br></br>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
           </fieldset>
         </form>
