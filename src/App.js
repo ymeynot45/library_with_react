@@ -21,11 +21,10 @@ const App = () => {
   };
 
   let Content = ({tab}) => {
-
-    const Book = function (title, author, pageNumber, haveRead) {
+    const Book = function (title, author, pageCount, haveRead) {
       this.title = title;
       this.author = author;
-      this.pageNumber = pageNumber;
+      this.pageCount = pageCount;
       this.haveRead = haveRead;
       return this
     }
@@ -99,7 +98,7 @@ const App = () => {
     let dataRetrieval = (formData) => {
       // console.log("app.js formdata" , formData);
       let formProps = formData;
-      let book = new Book(formProps.title, formProps.author, formProps.pageNumber, formProps.haveRead);
+      let book = new Book(formProps.title, formProps.author, formProps.pageCount, formProps.haveRead);
       if (book.haveRead === undefined){
         book.haveRead = false;
       }

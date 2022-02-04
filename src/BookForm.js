@@ -54,7 +54,7 @@ function InsertBookForm(dataRetrieval){
             <label>Author: </label> 
             <input type='text' id='newAuthor' name='author' onChange={handleChange}/><br></br>
             <label>Page Count: </label> 
-            <input type='number' name='pageNumber' onChange={handleChange}/><br></br>
+            <input type='number' name='pageCount' onChange={handleChange}/><br></br>
             <label>Have Read: </label> 
             <input id='haveReadFalse' name='haveRead' type='checkbox' value='false' onChange={handleChange}/>Finished<br></br>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
