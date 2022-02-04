@@ -88,7 +88,7 @@ const App = () => {
       return library;
     }
 
-    const tog = (id) => {
+    const toggleHaveRead = (id) => {
       const newLibrary = [...library];
       let index = newLibrary.findIndex(x =>x.id === id);
       newLibrary[index].haveRead = !library[index].haveRead;
@@ -141,7 +141,7 @@ const App = () => {
   switch (tab){
     default:
     case 'library':
-      return <LibraryPage showLibrary={library} tog={tog} reducer={reducer} deleteBook={deleteBook}/>  //FLAG
+      return <LibraryPage showLibrary={library} toggleHaveRead={toggleHaveRead} reducer={reducer} deleteBook={deleteBook}/>  //FLAG
     case 'NewBookForm':
       console.log("app page", typeof dataRetrieval)
       return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>

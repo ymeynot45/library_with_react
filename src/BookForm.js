@@ -21,6 +21,8 @@ function InsertBookForm(dataRetrieval){
     setTimeout(() =>{
       setSubmitting(false);
     }, 3000)
+
+    document.getElementById("newBookForm").reset();
   }
 
   const handleChange = event => {

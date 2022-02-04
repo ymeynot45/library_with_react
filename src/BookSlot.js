@@ -7,7 +7,7 @@ import "./BookSlot.css";
 // () => ()
 // () => { () }
 // () => { return (); }
-const BookSlot = ({id, title, author, pageCount, haveRead, tog, deleteBook}) => {
+const BookSlot = ({id, title, author, pageCount, haveRead, toggleHaveRead, deleteBook}) => {
     return <div className="Book" id={id+title} >
         <div className="Book-left">
             <div className="Book-properties">
@@ -15,7 +15,7 @@ const BookSlot = ({id, title, author, pageCount, haveRead, tog, deleteBook}) => 
             </div>            
         </div>
         <div className="Book-right">
-            <button className="have_read_button" onClick={() => tog(id)}>Have Read</button>
+            <button className="have_read_button" onClick={() => toggleHaveRead(id)}>Have Read</button>
             <button className="deleteBook_button" onClick={() => deleteBook(id)}>Delete Book</button>
         </div>
 
@@ -24,7 +24,7 @@ const BookSlot = ({id, title, author, pageCount, haveRead, tog, deleteBook}) => 
 
 // BookSlot.PropTypes = {
 //     book: PropTypes.object.isRequired,
-//     tog: PropTypes.func.isRequired
+//     toggleHaveRead: PropTypes.func.isRequired
 // };
 
 export default BookSlot;
