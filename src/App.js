@@ -29,34 +29,28 @@ const App = () => {
       return this
     }
 
-    const seeding = () =>{  //where do I run this? So it doesn't run an endless render loop.
-    addBookToLibrary(library, new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
-    addBookToLibrary(library, new Book("Flight from the Dark", "Joe Denver", 300, true));
-    addBookToLibrary(library, new Book("Fire on the Water", "Gary Chalk", 350, false));
-    }
-
     let [library, setLibrary] = useState([
       {
           id: 1,
-          title: "The Hobbit",  //3
-          author: "J.R.R. Tolkien",  //2
-          pageCount: 250,  //1
+          title: "The Hobbit",
+          author: "J.R.R. Tolkien",
+          pageCount: 250,
           haveRead: false
 
       },
       {
           id: 2,
-          title: "Flight from the Dark", //2
-          author: "Gary Chalk",  //1
-          pageCount: 400,  //3
+          title: "Flight from the Dark",
+          author: "Gary Chalk",
+          pageCount: 400,
           haveRead: true
 
       },
       {
           id: 3,
-          title: "Fire on the Water",  //1
-          author: "Joe Denver",  //3
-          pageCount: 300,  //2
+          title: "Fire on the Water",
+          author: "Joe Denver",
+          pageCount: 300,
           haveRead: false
 
       }
@@ -77,7 +71,7 @@ const App = () => {
           }
         }
       }
-      let field = {  //can refactor again if I just lowercase the type on the LibraryPage.
+      let field = {
         'Title': 'title',
         'Author': 'author',
         'Page Count': 'pageCount',
@@ -103,13 +97,12 @@ const App = () => {
     }
 
     let dataRetrieval = (formData) => {
-      // console.log("app.js formdata" , formData);
       let formProps = formData;
-      let book = new Book(formProps.title, formProps.author, formProps.pageCount, formProps.haveRead);
+      let book = new Book(formProps.title, formProps.author, parseInt(formProps.pageCount), formProps.haveRead);
       if (book.haveRead === undefined){
         book.haveRead = false;
       }
-      console.log("library" , library);
+  
       addBookToLibrary(library, book);
     }
 
@@ -141,14 +134,10 @@ const App = () => {
   switch (tab){
     default:
     case 'library':
-      return <LibraryPage showLibrary={library} toggleHaveRead={toggleHaveRead} reducer={reducer} deleteBook={deleteBook}/>  //FLAG
+      return <LibraryPage showLibrary={library} toggleHaveRead={toggleHaveRead} reducer={reducer} deleteBook={deleteBook}/>
     case 'NewBookForm':
-      console.log("app page", typeof dataRetrieval)
-      return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>
+      return <AddBookPage dataRetrieval={dataRetrieval}/>
   }
 }
-
-
-
 
 export default App;

@@ -67,5 +67,8 @@ function InsertBookForm(dataRetrieval){
   );
 }
 
+// InsertBookForm.propTypes = {
+//   dataRetrieval: PropTypes.func.isRequired,
+// };
 
 export default InsertBookForm;

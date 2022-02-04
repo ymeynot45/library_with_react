@@ -20,7 +20,10 @@ function LibraryPage({showLibrary, toggleHaveRead, reducer, deleteBook}){
 }
 
 LibraryPage.propTypes = {
-    showLibrary: PropTypes.array.isRequired
+    showLibrary: PropTypes.array.isRequired,
+    toggleHaveRead: PropTypes.func.isRequired,
+    deleteBook: PropTypes.func.isRequired,
+    reducer: PropTypes.func.isRequired,
 }
 
 export default LibraryPage;
