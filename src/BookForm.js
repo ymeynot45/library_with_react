@@ -28,7 +28,7 @@ function InsertBookForm(dataRetrieval){
 
     setFormData({
       name: event.target.name,
-      value: isCheckbox ? event.target.checked : event.target.value
+      value: isCheckbox ? event.target.checked : event.target.value,
     })
   }
 
@@ -56,7 +56,7 @@ function InsertBookForm(dataRetrieval){
             <label>Page Count: </label> 
             <input type='number' name='pageNumber' onChange={handleChange}/><br></br>
             <label>Have Read: </label> 
-            <input id='haveReadFalse' name='haveRead' type='checkbox' value='true' onChange={handleChange}/>Finished<br></br>
+            <input id='haveReadFalse' name='haveRead' type='checkbox' value='false' onChange={handleChange}/>Finished<br></br>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
           </fieldset>
         </form>

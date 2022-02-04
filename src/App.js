@@ -4,7 +4,6 @@ import Nav from "./Nav.js";
 import LibraryPage from "./LibraryPage.js";
 import AddBookPage from "./AddBookPage.js";
 
-
 const App = () => {
   const [activeTab, setActiveTab] = useState('library');
 
@@ -29,6 +28,12 @@ const App = () => {
       this.pageNumber = pageNumber;
       this.haveRead = haveRead;
       return this
+    }
+
+    const seeding = () =>{  //where do I run this? So it doesn't run an endless render loop.
+    addBookToLibrary(library, new Book("The Hobbit", "J.R.R. Tolkien", 295, false));
+    addBookToLibrary(library, new Book("Flight from the Dark", "Joe Denver", 300, true));
+    addBookToLibrary(library, new Book("Fire on the Water", "Gary Chalk", 350, false));
     }
 
     let [library, setLibrary] = useState([
@@ -92,9 +97,12 @@ const App = () => {
     }
 
     let dataRetrieval = (formData) => {
-      console.log("app.js formdata" , formData);
+      // console.log("app.js formdata" , formData);
       let formProps = formData;
       let book = new Book(formProps.title, formProps.author, formProps.pageNumber, formProps.haveRead);
+      if (book.haveRead === undefined){
+        book.haveRead = false;
+      }
       console.log("library" , library);
       addBookToLibrary(library, book);
     }
@@ -133,5 +141,8 @@ const App = () => {
       return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>
   }
 }
+
+
+
 
 export default App;
