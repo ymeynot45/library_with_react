@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import "./LibraryPage.css";
 import BookSlot from "./BookSlot.js";
 
-function LibraryPage({showLibrary, tog, reducer}){
+function LibraryPage({showLibrary, tog, reducer, deleteBook}){
     const [state, dispatch] = useReducer(reducer, showLibrary); 
     return(
         <div>
@@ -11,7 +11,7 @@ function LibraryPage({showLibrary, tog, reducer}){
             <ul className="LibraryPage-books">
                 {showLibrary.map(book =>
                     <li key={book.id} className="LibraryPage-Book">
-                        {<BookSlot id={book.id} title={book.title} author={book.author} pageCount={book.pageCount} haveRead={book.haveRead} tog={tog} /> }
+                        {<BookSlot id={book.id} title={book.title} author={book.author} pageCount={book.pageCount} haveRead={book.haveRead} tog={tog} deleteBook={deleteBook}/> }
                     </li>,
                 )}
             </ul>

@@ -95,6 +95,13 @@ const App = () => {
       setLibrary(newLibrary);
     }
 
+    const deleteBook = (id) => {
+      const newLibrary = [...library];
+      let index = newLibrary.findIndex(x =>x.id === id);
+      newLibrary.splice([index],1);
+      setLibrary(newLibrary);
+    }
+
     let dataRetrieval = (formData) => {
       // console.log("app.js formdata" , formData);
       let formProps = formData;
@@ -134,7 +141,7 @@ const App = () => {
   switch (tab){
     default:
     case 'library':
-      return <LibraryPage showLibrary={library} tog={tog} reducer={reducer}/>  //FLAG
+      return <LibraryPage showLibrary={library} tog={tog} reducer={reducer} deleteBook={deleteBook}/>  //FLAG
     case 'NewBookForm':
       console.log("app page", typeof dataRetrieval)
       return <AddBookPage onAddBook={library} addBook={addBookToLibrary} dataRetrieval={dataRetrieval}/>

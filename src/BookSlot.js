@@ -7,7 +7,7 @@ import "./BookSlot.css";
 // () => ()
 // () => { () }
 // () => { return (); }
-const BookSlot = ({id, title, author, pageCount, haveRead, tog}) => {
+const BookSlot = ({id, title, author, pageCount, haveRead, tog, deleteBook}) => {
     return <div className="Book" id={id+title} >
         <div className="Book-left">
             <div className="Book-properties">
@@ -16,6 +16,7 @@ const BookSlot = ({id, title, author, pageCount, haveRead, tog}) => {
         </div>
         <div className="Book-right">
             <button className="have_read_button" onClick={() => tog(id)}>Have Read</button>
+            <button className="deleteBook_button" onClick={() => deleteBook(id)}>Delete Book</button>
         </div>
 
     </div>;
