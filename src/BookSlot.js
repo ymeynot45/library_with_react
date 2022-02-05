@@ -6,7 +6,7 @@ const BookSlot = ({id, title, author, pageCount, haveRead, toggleHaveRead, delet
     return <div className="Book" id={id+title} >
         <div className="Book-left">
             <div className="Book-properties">
-                {id} - {title} - {author} - {pageCount} - Have Read?  {haveRead.toString()}
+                <span className="1col">{id} - {title}</span><span className="2col">{author}</span><span className="3col" id="third-col">{pageCount}</span><span className="4col" id="fourth-col">{haveRead.toString()}</span>
             </div>            
         </div>
         <div className="Book-right">

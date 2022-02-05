@@ -8,9 +8,32 @@
     margin-bottom: 20px;
 }
 
-.libraryPage-headers span{
-    display: grid | inline-grid;
-    padding-left: 150px;
-    text-align: center;
-    justify-content: center ;
+.libraryPage-buttons{
+  display: grid;
+    grid-template-columns: repeat(2, 3fr) repeat(2, 1fr);
+}
+
+#button1{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+#button2{
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+#button3{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+#button4{
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }

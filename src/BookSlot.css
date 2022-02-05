@@ -1,0 +1,12 @@
+.Book-properties{
+  display: grid;
+  grid-template-columns: repeat(2, 3fr) repeat(2, 1fr);
+}
+
+#third-col{
+  text-align: center;
+}
+
+#fourth-col{
+  text-align: center;
+}

@@ -7,7 +7,9 @@ function LibraryPage({showLibrary, toggleHaveRead, reducer, deleteBook}){
     const [state, dispatch] = useReducer(reducer, showLibrary); 
     return(
         <div>
-            <div className="libraryPage-headers"><button onClick={() => dispatch({type: 'Title'})}> Title </button><button onClick={() => dispatch({type: 'Author'})}> Author </button><button onClick={() => dispatch({type: 'Page Count'})}> PageCount </button><button onClick={() => dispatch({type: 'Have Read'})}> Have Read </button></div>
+            <div className="libraryPage-headers">
+              <div className="libraryPage-buttons" ><button id="button1" onClick={() => dispatch({type: 'Title'})}> Title </button><button id="button2" onClick={() => dispatch({type: 'Author'})}> Author </button><button id="button3" onClick={() => dispatch({type: 'Page Count'})}> PageCount </button><button id="button4" onClick={() => dispatch({type: 'Have Read'})}> Have Read </button></div>
+            </div>
             <ul className="LibraryPage-books">
                 {showLibrary.map(book =>
                     <li key={book.id} className="LibraryPage-Book">
@@ -15,6 +17,7 @@ function LibraryPage({showLibrary, toggleHaveRead, reducer, deleteBook}){
                     </li>,
                 )}
             </ul>
+            
         </div>
     );
 }
