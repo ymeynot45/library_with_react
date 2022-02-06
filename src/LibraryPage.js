@@ -4,7 +4,7 @@ import "./LibraryPage.css";
 import BookSlot from "./BookSlot.js";
 
 function LibraryPage({showLibrary, toggleHaveRead, reducer, deleteBook}){
-    const [state, dispatch] = useReducer(reducer, showLibrary); 
+    const [state, dispatch] = useReducer(reducer, showLibrary);
     return(
         <div>
             <div className="libraryPage-headers">
@@ -13,8 +13,8 @@ function LibraryPage({showLibrary, toggleHaveRead, reducer, deleteBook}){
             <ul className="LibraryPage-books">
                 {showLibrary.map(book =>
                     <li key={book.id} className="LibraryPage-Book">
-                        {<BookSlot id={book.id} title={book.title} author={book.author} pageCount={book.pageCount} haveRead={book.haveRead} toggleHaveRead={toggleHaveRead} deleteBook={deleteBook}/> }
-                    </li>,
+                        {<BookSlot slot={book.id} title={book.title} author={book.author} pageCount={book.pageCount} haveRead={book.haveRead} toggleHaveRead={toggleHaveRead} deleteBook={deleteBook}/> }
+                        </li>,
                 )}
             </ul>
             
