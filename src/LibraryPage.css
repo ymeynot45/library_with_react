@@ -6,6 +6,9 @@
 .LibraryPage-books li{
     list-style: none;
 }
+.LibraryPage-books li:nth-child(2){
+  background-color: lightblue;
+}
 
 .libraryPage-buttons{
   display: grid;

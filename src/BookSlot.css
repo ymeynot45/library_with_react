@@ -3,10 +3,6 @@
   grid-template-columns: repeat(2, 3fr) repeat(2, 1fr);
 }
 
-.even{
-  background-color: lightblue;
-}
-
 .thirdcol{
   text-align: center;
 }
