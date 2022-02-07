@@ -5,11 +5,12 @@ import "./BookSlot.css";
 
 
 const BookSlot = ({slot, title, author, pageCount, haveRead, toggleHaveRead, deleteBook}) => {
-  let colorCoding = (slot%2 === 0 ? 'even' : 'odd');    
+  let colorCoding = (slot%2 === 0 ? 'even' : '');
+  let haveReadAlert = (haveRead === false ? "redAlert" : '')
     return <div className="Book" id={slot+title} className={colorCoding}>
       <div className="Book-left">
           <div className="Book-properties">
-              <span className="1col">{slot} - {title}</span><span className="2col">{author}</span><span className="3col" id="third-col">{pageCount}</span><span className="4col" id="fourth-col">{haveRead.toString()}</span>
+              <span className="firstcol">{slot} - {title}</span><span className="secondcol">{author}</span><span className="thirdcol" >{pageCount}</span><span className="fourthcol" className={haveReadAlert}>{haveRead.toString()}</span>
           </div>            
       </div>
       <div className="Book-right">

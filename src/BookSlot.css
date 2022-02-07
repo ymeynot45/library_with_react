@@ -7,10 +7,14 @@
   background-color: lightblue;
 }
 
-#third-col{
+.thirdcol{
   text-align: center;
 }
 
-#fourth-col{
+.fourthcol{
   text-align: center;
+}
+
+.redAlert{
+  color: red;
 }
