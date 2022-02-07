@@ -36,9 +36,7 @@ function InsertBookForm(dataRetrieval){
 
   return(
     <div className="bookFormWrapper">
-      <div>
-        Other information
-      </div>
+      <div>Add a Book!</div>
       {submitting && 
       <div id="submittingMessage" >Submitting Form ... 
       You are submitting the following:
@@ -48,17 +46,17 @@ function InsertBookForm(dataRetrieval){
            ))}
          </ul></div>
       }
-      <div> Add a Book!
-        <form id="newBookForm" onSubmit={handleSubmit}><br></br>
-          <fieldset >
-            <label>Title: </label> 
-            <input type='text' id='newTitle' name='title' onChange={handleChange}/><br></br>
-            <label>Author: </label> 
-            <input type='text' id='newAuthor' name='author' onChange={handleChange}/><br></br>
-            <label>Page Count: </label> 
-            <input type='number' name='pageCount' onChange={handleChange}/><br></br>
-            <label>Have Read: </label> 
-            <input id='haveReadFalse' name='haveRead' type='checkbox' value='false' onChange={handleChange}/>Finished<br></br>
+      <div> 
+        <form id="newBookForm" onSubmit={handleSubmit}>
+          <fieldset className="wrapper">
+            <label className="prompts" >Title: </label> 
+            <input type='text' id='newTitle' className="inputs" name='title' onChange={handleChange}/>
+            <label className="prompts">Author: </label> 
+            <input type='text' id='newAuthor' className="inputs" name='author' onChange={handleChange}/>
+            <label className="prompts">Page Count: </label> 
+            <input type='number' className="inputs" name='pageCount' onChange={handleChange}/>
+            <label className="prompts">Finished the Book: </label> 
+            <input id='haveReadFalse' className="inputs" name='haveRead' type='checkbox' value='false' onChange={handleChange}/>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>
           </fieldset>
         </form>

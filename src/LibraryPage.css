@@ -6,7 +6,7 @@
 .LibraryPage-books li{
     list-style: none;
 }
-.LibraryPage-books li:nth-child(2){
+.LibraryPage-books li:nth-child(even){
   background-color: lightblue;
 }
 

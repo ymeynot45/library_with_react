@@ -1,4 +1,23 @@
+.wrapper{
+  display:inline-flex;
+}
+
+.prompts{
+padding-left: 25px;
+padding-right: 5px;
+}
+
+.imputs{
+  align-self:center
+}
+
 #submittingMessage{
   color: red;
-  font-size: 25px;
+  font-size: 15px;
+}
+
+#newBookSubmitButton{
+  margin-left: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
