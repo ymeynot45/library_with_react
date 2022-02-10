@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import './App.css'
 import Nav from './Nav.js'
 import LibraryPage from './LibraryPage.js'
@@ -136,6 +137,10 @@ const Content = ({ tab }) => {
       return <AddBookPage dataRetrieval={dataRetrieval}/>
     default:
   }
+}
+
+Content.propTypes = {
+  tab: PropTypes.string.isRequired
 }
 
 export default App

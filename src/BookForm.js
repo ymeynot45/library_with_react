@@ -50,11 +50,11 @@ function InsertBookForm (dataRetrieval) {
         <form id="newBookForm" onSubmit={handleSubmit}>
           <fieldset className="wrapper">
             <label className="prompts" >Title: </label>
-            <input type='text' id='newTitle' className="inputs" name='title' onChange={handleChange}/>
+            <input type='text' id='newTitle' className="inputs" name='title' onChange={handleChange} required='required'/>
             <label className="prompts">Author: </label>
-            <input type='text' id='newAuthor' className="inputs" name='author' onChange={handleChange}/>
+            <input type='text' id='newAuthor' className="inputs" name='author' onChange={handleChange} required='required'/>
             <label className="prompts">Page Count: </label>
-            <input type='number' className="inputs" name='pageCount' onChange={handleChange}/>
+            <input type='number' className="inputs" name='pageCount' onChange={handleChange} required='required'/>
             <label className="prompts">Finished the Book: </label>
             <input id='haveReadFalse' className="inputs" name='haveRead' type='checkbox' value='false' onChange={handleChange}/>
             <input type='submit' id='newBookSubmitButton' name='newBookSubmit' value='Submit'/>

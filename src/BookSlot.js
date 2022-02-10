@@ -4,10 +4,11 @@ import './BookSlot.css'
 
 const BookSlot = ({ slot, title, author, pageCount, haveRead, toggleHaveRead, deleteBook }) => {
   const haveReadAlert = (haveRead === false ? 'redAlert' : '')
+  console.log(haveReadAlert)
   return <div className="Book" id={slot + title}>
     <div className="Book-left">
       <div className="Book-properties">
-        <span className="firstcol">{slot} - {title}</span><span className="secondcol">{author}</span><span className="thirdcol" >{pageCount}</span><span className="fourthcol" className={haveReadAlert}>{haveRead.toString()}</span>
+        <span className="firstcol">{slot} - {title}</span><span className="secondcol">{author}</span><span className="thirdcol" >{pageCount}</span><span className="fourthcol {haveReadAlert}">{haveRead.toString()}</span>
       </div>
     </div>
     <div className="Book-right">

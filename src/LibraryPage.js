@@ -4,7 +4,7 @@ import './LibraryPage.css'
 import BookSlot from './BookSlot.js'
 
 function LibraryPage ({ showLibrary, toggleHaveRead, reducer, deleteBook }) {
-  const [state, dispatch] = useReducer(reducer, showLibrary)
+  const [, dispatch] = useReducer(reducer, showLibrary)
   return (
     <div>
       <div className="libraryPage-headers">
