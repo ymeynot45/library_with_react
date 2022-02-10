@@ -1,17 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./AddBookPage.css";
-import InsertBookForm from "./BookForm.js"
+import PropTypes from 'prop-types'
+import './AddBookPage.css'
+import InsertBookForm from './BookForm.js'
 
-
-function AddBookPage({dataRetrieval} ){
-  return(
+function AddBookPage ({ dataRetrieval }) {
+  return (
     InsertBookForm(dataRetrieval)
   )
 };
 
 AddBookPage.propTypes = {
-  dataRetrieval: PropTypes.func.isRequired,
+  dataRetrieval: PropTypes.func.isRequired
 }
 
-export default AddBookPage;
+export default AddBookPage

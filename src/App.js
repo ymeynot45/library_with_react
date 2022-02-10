@@ -18,16 +18,16 @@ const App = () => {
       </main>
     </div>
   )
-  }
+}
 
-  const Content = ({ tab }) => {
-    const Book = function (title, author, pageCount, haveRead) {
-      this.title = title
-      this.author = author
-      this.pageCount = pageCount
-      this.haveRead = haveRead
-      return this
-    }
+const Content = ({ tab }) => {
+  const Book = function (title, author, pageCount, haveRead) {
+    this.title = title
+    this.author = author
+    this.pageCount = pageCount
+    this.haveRead = haveRead
+    return this
+  }
 
   const [library, setLibrary] = useState([
     {
