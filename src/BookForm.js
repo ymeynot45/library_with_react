@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react'
-// import PropTypes from 'Prop-types';
+import PropTypes from 'Prop-types'
 import './BookForm.css'
 
 const formReducer = (state, event) => {
@@ -65,8 +65,8 @@ function InsertBookForm (dataRetrieval) {
   )
 }
 
-// InsertBookForm.propTypes = {
-//   dataRetrieval: PropTypes.func.isRequired,
-// };
+InsertBookForm.propTypes = {
+  dataRetrieval: PropTypes.func.isRequired
+}
 
 export default InsertBookForm

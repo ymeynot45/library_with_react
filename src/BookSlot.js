@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import './BookSlot.css'
 
 const BookSlot = ({ slot, title, author, pageCount, haveRead, toggleHaveRead, deleteBook }) => {
-  const haveReadAlert = (haveRead === false ? 'redAlert' : '')
-  console.log(haveReadAlert)
   return <div className="Book" id={slot + title}>
     <div className="Book-left">
       <div className="Book-properties">
